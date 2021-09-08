@@ -33,17 +33,16 @@ public class Produto {
 	private int quantidade;
 	
 	@NotNull(message = "Preço é obrigatório!")
-	@Positive(message = "O preço deve ser maior do que zero!")
+	@Positive
 	private BigDecimal preco;
 	
 	@ManyToOne
 	@JsonIgnoreProperties("produto")
 	private Categoria categoria;
-
-	public long getId() {
-		return id;
-	}
-
+	
+	@ManyToOne
+	@JsonIgnoreProperties("produto")
+	private Usuario usuario;
 	public void setId(long id) {
 		this.id = id;
 	}
@@ -95,6 +94,20 @@ public class Produto {
 	public void setCategoria(Categoria categoria) {
 		this.categoria = categoria;
 	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+
 
 
 }
